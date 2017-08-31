@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Instagram</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+   <div class="navbar navbar-inverse navbar-inverse">
+      <div class="container">
+
+       <% if user_signed_in? %>
+         <ul class="nav navbar-nav navbar-left">
+                   <h1><a class="navbar-brand"><%= link_to "R-Connect", root_path%></a></h1>
+                   </ul>
+                    <ul class="nav navbar-nav navbar-right">
+              <li class="nav-item"><%= link_to 'R-Connect',new_pic_path %></li>
+                <li class="nav-item"><%= link_to 'Settings', edit_user_registration_path %></li>
+                  <li class="nav-item"><%= link_to 'Sign_out', destroy_user_session_path, method: :delete  %></li>
+                   </ul>
+              <%else%>
+              <ul class="nav navbar-nav navbar-left">
+             <h1><a class="navbar-brand"><%= link_to "R-Connect", root_path%></a></h1>
+           </ul>
+             <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item"><%= link_to 'Join-R-Connect',new_user_registration_path%></li>
+            <li class="nav-item"><%= link_to 'Sign-in',new_user_session_path %></li>
+   </ul>
+              <%end%>
+
+       </div><!--/.nav-collapse -->
+     </div>
+   </div>
+
+    <%= yield %>
+  </div>
+  </body>
+</html>

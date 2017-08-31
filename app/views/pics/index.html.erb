@@ -1,0 +1,13 @@
+<div style="margin-left:35%;" class="col-md-6 col-md-offset-3">
+  <div id="pics">
+    <div class="transitions-enabled">
+<% @pics.each do |pic|%>
+</div>
+<div class="box panel panel-dafault">
+<%= link_to (image_tag pic.image.url), pic %>
+<h1><%= link_to pic.title, pic %></h1>
+  <%=pic.get_upvotes.size%> votes
+ <%end%>
+</div>
+</div>
+</div>
